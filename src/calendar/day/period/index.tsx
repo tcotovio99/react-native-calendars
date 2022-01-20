@@ -145,9 +145,6 @@ export default class PeriodDay extends Component<PeriodDayProps> {
       textStyle.push(this.style.disabledText);
     } else if (state === 'inactive') {
       textStyle.push(this.style.inactiveText);
-    } else if (state === 'today') {
-      containerStyle.push(this.style.today);
-      textStyle.push(this.style.todayText);
     }
 
     if (marking) {
@@ -214,7 +211,10 @@ export default class PeriodDay extends Component<PeriodDayProps> {
         </View>
       );
     }
-
+    if (state === 'today') {
+      containerStyle.push(this.style.today);
+      textStyle.push(this.style.todayText);
+    }
     const {theme, accessibilityLabel, testID} = this.props;
 
     // TODO: refactor - allow feedback for unmarked days
